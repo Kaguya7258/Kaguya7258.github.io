@@ -12,31 +12,31 @@
     <header>
         <div class="bg-img">
         </div>
-<!-- Title text -->
+        <!-- Title text -->
         <div class="title">
             <a href="./index.html">
                 <h1>KAGUYA.</h1>
             </a>
             <h2>Freelance artist, occasional animator</h2>
         </div>
-<!-- nav bar -->
+        <!-- nav bar -->
         <nav>
             <div class="navlink">
-            <a href="./index.html">
-                <p>HOME</p>
-            </a>
+                <a href="./index.html">
+                    <p>HOME</p>
+                </a>
             </div>
 
             <div class="navlink">
-            <a href="./portfolio.html">
-                <p>PORTFOLIO</p>
-            </a>
+                <a href="./portfolio.html">
+                    <p>PORTFOLIO</p>
+                </a>
             </div>
 
             <div class="navlink">
-            <a href="./contact.html">
-                <p>CONTACT</p>
-            </a>
+                <a href="./contact.html">
+                    <p>CONTACT</p>
+                </a>
             </div>
         </nav>
     </header>
@@ -46,10 +46,11 @@
         <div class="wrapper">
             <h2>about.</h2>
             <div class="text-img">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam fuga magni, animi beatae laboriosam
-                cupiditate accusamus explicabo eum voluptas minus a, voluptatum vero, nesciunt sunt repudiandae. Tenetur
-                quasi odio neque.</p>
-            <img src="./Images/Short Animation/Idle.png">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam fuga magni, animi beatae laboriosam
+                    cupiditate accusamus explicabo eum voluptas minus a, voluptatum vero, nesciunt sunt repudiandae.
+                    Tenetur
+                    quasi odio neque.</p>
+                <img src="./Images/Short Animation/Idle.png">
             </div>
         </div>
     </section>
@@ -58,28 +59,77 @@
         <div class="wrapper">
             <h2>featured.</h2>
         </div>
-            <div class="grid">
+        <!-- <div class="grid">
                 <img src="./Images/Onmyoji OC/IMG_2327.JPG" class="zoomable" data-caption="hello???">
                 <img src="./Images/Black Butler/Happy_New_Year~!.png" class="zoomable">
                 <img src="./Images/Fire and Water/77224E0A-F0FC-4A04-B418-B6AE87F3B7BE.JPG" class="zoomable">
                 <img src="./Images/Fire and Water/ACA0B08D-7180-411C-8931-4260C059E26A.JPG" class="zoomable">
                 <img src="./Images/Mysta Rias Graduation Art/IMG_2432.JPG" class="zoomable">
+            </div> -->
+
+        <!-- Slideshow container -->
+        <div class="slideshow-container">
+
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 5</div>
+                <img src="/Images/Onmyoji OC/IMG_2327.JPG" style="width:100%; height: 40rem; object-fit: contain;">
+
             </div>
-        
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 5</div>
+                <img src="/Images/Black Butler/Happy_New_Year~!.png" style="width:100%; height: 40rem; object-fit: contain;">
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 5</div>
+                <img src="/Images/Fire and Water/77224E0A-F0FC-4A04-B418-B6AE87F3B7BE.JPG" style="width:100%; height: 40rem; object-fit: contain;">
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 5</div>
+                <img src="/Images/Fire and Water/ACA0B08D-7180-411C-8931-4260C059E26A.JPG" style="width:100%; height: 40rem; object-fit: contain;">
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">5 / 5</div>
+                <img src="/Images/Mysta Rias Graduation Art/IMG_2432.JPG" style="width:100%; height: 40rem; object-fit: contain;">
+
+            </div>
+
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <br>
+
+        <!-- The dots/circles -->
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+
     </section>
 
-<!-- Links -->
+    <!-- Links -->
     <section class="link-section">
         <div class="wrapper">
             <h2>links.</h2>
             <div class="link">
-            <a href="https://www.artstation.com/kaguya7258"><img src='./icons/artstation.svg'></a>
+                <a href="https://www.artstation.com/kaguya7258"><img src='./icons/artstation.svg'></a>
             </div>
             <div class="link">
-            <a href="https://www.instagram.com/seraphic_darkness/"><img src="./icons/instagram-logo.svg"></a>
+                <a href="https://www.instagram.com/seraphic_darkness/"><img src="./icons/instagram-logo.svg"></a>
             </div>
             <div class="link">
-            <a href="https://kaguya7258.itch.io/"><img src="./icons/itchio-textless-black.svg"></a>
+                <a href="https://kaguya7258.itch.io/"><img src="./icons/itchio-textless-black.svg"></a>
             </div>
         </div>
     </section>
@@ -89,6 +139,40 @@
     <footer>
         © 2025 | kabooya
     </footer>
+
+    <!-- Slideshow script -->
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        // Next/previous controls
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        // Thumbnail image controls
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        } 
+    </script>
+
+
 
     <!-- Scroll to top -->
     <a href="#" class="scrollToTop" id="scrollToTop">&uarr;</a>
@@ -110,47 +194,47 @@
         });
     </script>
 
-<!-- ✅ Lightbox overlay -->
-<div id="lightbox" class="lightbox">
-    <div class="lightbox-content">
-        <img src="" alt="Zoomed image" id="lightbox-img">
-        <p id="lightbox-caption"></p>
+    <!-- ✅ Lightbox overlay -->
+    <div id="lightbox" class="lightbox">
+        <div class="lightbox-content">
+            <img src="" alt="Zoomed image" id="lightbox-img">
+            <p id="lightbox-caption"></p>
+        </div>
     </div>
-</div>
 
-<!-- Lightbox Functionality Script -->
-<script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const zoomables = document.querySelectorAll('.zoomable');
+    <!-- Lightbox Functionality Script -->
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const zoomables = document.querySelectorAll('.zoomable');
 
-    zoomables.forEach(img => {
-        img.addEventListener('click', () => {
-            lightboxImg.src = img.src;
-            lightboxCaption.textContent = img.dataset.caption || '';
+        zoomables.forEach(img => {
+            img.addEventListener('click', () => {
+                lightboxImg.src = img.src;
+                lightboxCaption.textContent = img.dataset.caption || '';
 
-            // Always set display before adding .show for fade-in
-            lightbox.style.display = 'flex';
-            // Force reflow to ensure transition works
-            void lightbox.offsetWidth;
-            lightbox.classList.add('show');
+                // Always set display before adding .show for fade-in
+                lightbox.style.display = 'flex';
+                // Force reflow to ensure transition works
+                void lightbox.offsetWidth;
+                lightbox.classList.add('show');
+            });
         });
-    });
 
-    // Close when clicking outside the image
-    lightbox.addEventListener('click', (e) => {
-        if (e.target !== lightboxImg) {
-            lightbox.classList.remove('show');
-            // Wait for fade-out transition, then hide
-            setTimeout(() => {
-                lightbox.style.display = 'none';
-                lightboxImg.src = '';
-                lightboxCaption.textContent = '';
-            }, 400); // match the CSS transition duration
-        }
-    });
-</script>
+        // Close when clicking outside the image
+        lightbox.addEventListener('click', (e) => {
+            if (e.target !== lightboxImg) {
+                lightbox.classList.remove('show');
+                // Wait for fade-out transition, then hide
+                setTimeout(() => {
+                    lightbox.style.display = 'none';
+                    lightboxImg.src = '';
+                    lightboxCaption.textContent = '';
+                }, 400); // match the CSS transition duration
+            }
+        });
+    </script>
     <!-- fade section script v2-->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
