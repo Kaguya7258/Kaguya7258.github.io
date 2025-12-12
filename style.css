@@ -131,7 +131,14 @@ header .bg-img {
 }
 
 .port-link {
-    display: inline-block;
+  display: flex;
+  flex-direction: row;   /* puts children side by side */
+  justify-content: space-between; /* pushes them apart */
+  align-items: center;   /* vertical alignment */
+
+
+
+
     margin-left: 3rem;
     margin-right: 3rem;
 }
