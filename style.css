@@ -118,13 +118,13 @@ header .bg-img {
 
 
 .port-link a {
-    text-align: left;
     color: var(--color-1);
     text-decoration: none;
 
     /* font */
     font-weight: bold;
     font-family: BoldFont;
+    font-size: 2rem;
 
     transition: all 0.3s ease;
 }
@@ -133,7 +133,9 @@ header .bg-img {
 }
 
 .port-link {
+    display: inline-block;
     margin-left: 3rem;
+    margin-right: 3rem;
 }
 
 
@@ -264,6 +266,7 @@ header a:hover {
 
 .link-section {
     margin-bottom: 4rem;
+    margin-top: 4rem;
 }
 
 .link-section a {
