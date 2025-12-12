@@ -5,35 +5,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Title</title>
+    <title>Home | Kaguya</title>
 </head>
 
 <body>
     <header>
+        <div class="bg-img">
+        </div>
+<!-- Title text -->
         <div class="title">
             <a href="./index.html">
-                <h1>Kaguya.</h1>
+                <h1>kaguya.</h1>
             </a>
             <h2>Freelance artist, occasional animator</h2>
         </div>
-
-        <nav class="navlink">
+<!-- nav bar -->
+        <nav>
+            <div class="navlink">
             <a href="./index.html">
-                <p>Home</p>
+                <p>HOME</p>
             </a>
+            </div>
+
+            <div class="navlink">
             <a href="./portfolio.html">
-                <p>portfolio</p>
+                <p>PORTFOLIO</p>
             </a>
+            </div>
+
+            <div class="navlink">
             <a href="./contact.html">
-                <p>Contact</p>
+                <p>CONTACT</p>
             </a>
+            </div>
         </nav>
     </header>
 
 
     <section class="fade-section">
         <div class="wrapper">
-            <h2>Second Title</h2>
+            <h2>about.</h2>
             <div class="text-img">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam fuga magni, animi beatae laboriosam
                 cupiditate accusamus explicabo eum voluptas minus a, voluptatum vero, nesciunt sunt repudiandae. Tenetur
@@ -45,7 +56,8 @@
 
     <section class="fade-section">
         <div class="wrapper">
-            <h2>featured</h2>
+            <h2>featured.</h2>
+        </div>
             <div class="grid">
                 <img src="./Images/Onmyoji OC/IMG_2327.JPG" class="zoomable" data-caption="hello???">
                 <img src="./Images/Black Butler/Happy_New_Year~!.png" class="zoomable">
@@ -53,20 +65,26 @@
                 <img src="./Images/Fire and Water/ACA0B08D-7180-411C-8931-4260C059E26A.JPG" class="zoomable">
                 <img src="./Images/Black Butler/IMG_2920.PNG" class="zoomable">
                 <img src="./Images/Mysta Rias Graduation Art/IMG_2432.JPG" class="zoomable">
-                <img src="./Images/Journey of a Failure/Untitled_Artwork 2.gif" class="zoomable">
-                <img src="./Images/Short Animation/Swipe.gif" class="zoomable">
+            </div>
+        
+    </section>
+
+<!-- Links -->
+    <section class="link-section">
+        <div class="wrapper">
+            <h2>links</h2>
+            <div class="link">
+            <a href="https://www.artstation.com/kaguya7258"><img src='./icons/artstation.svg'></a>
+            </div>
+            <div class="link">
+            <a href="https://www.instagram.com/seraphic_darkness/"><img src="./icons/instagram-logo.svg"></a>
+            </div>
+            <div class="link">
+            <a href="https://kaguya7258.itch.io/"><img src="./icons/itchio-textless-black.svg"></a>
             </div>
         </div>
     </section>
 
-
-    <section class="link">
-        <div class="wrapper">
-            <a href="https://www.artstation.com/kaguya7258">ARTSTATION</a>
-            <a href="https://www.instagram.com/seraphic_darkness/">INSTAGRAM</a>
-            <a href="https://kaguya7258.itch.io/">ITCH.IO</a>
-        </div>
-    </section>
 
 
     <footer>
@@ -74,7 +92,7 @@
     </footer>
 
     <!-- Scroll to top -->
-    <a href="#" class="scrollToTop" id="scrollToTop">^</a>
+    <a href="#" class="scrollToTop" id="scrollToTop">&uarr;</a>
 
 
     <script>
@@ -143,7 +161,7 @@
             function getThreshold() {
                 if (window.innerWidth < 600) return 0.1;   // phones
                 if (window.innerWidth < 1024) return 0.2;  // tablets
-                return 0.5;                                // desktops
+                return 0.35;                                // desktops
             }
 
             let observer = createObserver();

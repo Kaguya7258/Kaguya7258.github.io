@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contact (or whatever page)</title>
+</head>
+<body>
+    <header>
+        <div class="bg-img"></div>
+        <!-- nav bar -->
+        <nav>
+            <div class="navlink">
+            <a href="./index.html">
+                <p>HOME</p>
+            </a>
+            </div>
+
+            <div class="navlink">
+            <a href="./portfolio.html">
+                <p>PORTFOLIO</p>
+            </a>
+            </div>
+
+            <div class="navlink">
+            <a href="./contact.html">
+                <p>CONTACT</p>
+            </a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="fade-section">
+        <h2>Contact</h2>
+        <p>find me here!</p>
+    </section>
+
+    <!-- Links -->
+    <section class="link-section">
+        <div class="wrapper">
+            <h2>links</h2>
+            <div class="link">
+            <a href="https://www.artstation.com/kaguya7258"><img src='./icons/artstation.svg'></a>
+            </div>
+            <div class="link">
+            <a href="https://www.instagram.com/seraphic_darkness/"><img src="./icons/instagram-logo.svg"></a>
+            </div>
+            <div class="link">
+            <a href="https://kaguya7258.itch.io/"><img src="./icons/itchio-textless-black.svg"></a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <footer>
+        © 2025 | kabooya
+    </footer>
+
+     <!-- fade section script v2-->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".fade-section");
+
+            // Pick a threshold based on screen width
+            function getThreshold() {
+                if (window.innerWidth < 600) return 0.1;   // phones
+                if (window.innerWidth < 1024) return 0.2;  // tablets
+                return 0.35;                                // desktops
+            }
+
+            let observer = createObserver();
+
+            function createObserver() {
+                return new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("visible");
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: getThreshold() });
+            }
+
+            // Observe all sections
+            sections.forEach(section => observer.observe(section));
+
+            // Optional: Re-create observer on resize
+            window.addEventListener("resize", () => {
+                const newThreshold = getThreshold();
+
+                // Rebuild observer only if threshold changed
+                if (observer.threshold !== newThreshold) {
+                    observer.disconnect();
+                    observer = createObserver();
+                    sections.forEach(section => {
+                        if (!section.classList.contains("visible")) {
+                            observer.observe(section);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
