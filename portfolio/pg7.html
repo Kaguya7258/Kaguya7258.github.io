@@ -1,94 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Home | Kaguya</title>
+    <link rel="stylesheet" href="/style.css">
+    <title>Portfolio | Kaguya</title>
 </head>
-
 <body>
-    <header>
-        <div class="bg-img">
-        </div>
-<!-- Title text -->
-        <div class="title">
-            <a href="./index.html">
-                <h1>KAGUYA.</h1>
-            </a>
-            <h2>Freelance artist, occasional animator</h2>
-        </div>
-<!-- nav bar -->
+<!-- Default header -->
+        <header>
+        <div class="bg-img"></div>
+        
         <nav>
             <div class="navlink">
-            <a href="./index.html">
+            <a href="/index.html">
                 <p>HOME</p>
             </a>
             </div>
 
             <div class="navlink">
-            <a href="./portfolio.html">
+            <a href="/portfolio.html">
                 <p>PORTFOLIO</p>
             </a>
             </div>
 
             <div class="navlink">
-            <a href="./contact.html">
+            <a href="/contact.html">
                 <p>CONTACT</p>
             </a>
             </div>
         </nav>
     </header>
+<!-- end -->
+<div class="port-link">
+    <a href="/portfolio.html"><h3>&larr; Back</h3></a>
+</div>
 
+ <h3>3D Animation</h3>
+        <p>Nuggets.</p>
 
-    <section class="fade-section">
-        <div class="wrapper">
-            <h2>about.</h2>
-            <div class="text-img">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam fuga magni, animi beatae laboriosam
-                cupiditate accusamus explicabo eum voluptas minus a, voluptatum vero, nesciunt sunt repudiandae. Tenetur
-                quasi odio neque.</p>
-            <img src="./Images/Short Animation/Idle.png">
+        <section class="fade-section">
+            <div class="grid" style="--columns:2;">
+                <img src="/Images/ROAM/01_InitialWalking.gif" class="zoomable">
+                <img src="/Images/ROAM/02_Idle.gif" class="zoomable">
+                <img src="/Images/ROAM/03_Roar.gif" class="zoomable">
+                <img src="/Images/ROAM/04_BiteConcept.gif" class="zoomable">
+                <img src="/Images/ROAM/04_GeneralBite.gif" class="zoomable">
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="fade-section">
-        <div class="wrapper">
-            <h2>featured.</h2>
-        </div>
+
+        <section class="fade-section">
+            <p>nuggets cutscene</p>
+            <div class="grid" style="--columns:2;">
+                <img src="/Images/ROAM/05_Sleeping_WakingUp.gif" class="zoomable">
+                <img src="/Images/ROAM/06_Sleeping_StandingUp.gif" class="zoomable">
+                <img src="/Images/ROAM/10_GoToSleep.gif" class="zoomable">
+                <img src="/Images/ROAM/11_Sit.gif" class="zoomable">
+                <img src="/Images/ROAM/12_Sit_Stand.gif" class="zoomable">
+            </div>
+        </section>
+
+        <section class="fade-section">
             <div class="grid">
-                <img src="./Images/Onmyoji OC/IMG_2327.JPG" class="zoomable" data-caption="hello???">
-                <img src="./Images/Black Butler/Happy_New_Year~!.png" class="zoomable">
-                <img src="./Images/Fire and Water/77224E0A-F0FC-4A04-B418-B6AE87F3B7BE.JPG" class="zoomable">
-                <img src="./Images/Fire and Water/ACA0B08D-7180-411C-8931-4260C059E26A.JPG" class="zoomable">
-                <img src="./Images/Mysta Rias Graduation Art/IMG_2432.JPG" class="zoomable">
+                <img src="/Images/ROAM/07_SlowWalk.gif" class="zoomable">
+                <img src="/Images/ROAM/08_CrouchWalk.gif" class="zoomable">
+                <img src="/Images/ROAM/09_CrouchIdle.gif" class="zoomable">
             </div>
-        
-    </section>
+        </section>
 
-<!-- Links -->
+        <section class="fade-section">
+            <p>Other characters</p>
+            <div class="grid" style="--columns:2;">
+                <img src="/Images/ROAM/13_Rat_Run.gif" class="zoomable">
+                <img src="/Images/ROAM/14_Rat_Idle.gif" class="zoomable">
+                <img src="/Images/ROAM/15_Raptor1.gif" class="zoomable">
+                <img src="/Images/ROAM/16_Raptor2.gif" class="zoomable">
+            </div>
+        </section>
+
+
+
+
+
+
+
+<!-- default footer & links -->
+
+    <!-- Links -->
     <section class="link-section">
         <div class="wrapper">
             <h2>links.</h2>
             <div class="link">
-            <a href="https://www.artstation.com/kaguya7258"><img src='./icons/artstation.svg'></a>
+            <a href="https://www.artstation.com/kaguya7258"><img src='/icons/artstation.svg'></a>
             </div>
             <div class="link">
-            <a href="https://www.instagram.com/seraphic_darkness/"><img src="./icons/instagram-logo.svg"></a>
+            <a href="https://www.instagram.com/seraphic_darkness/"><img src="/icons/instagram-logo.svg"></a>
             </div>
             <div class="link">
-            <a href="https://kaguya7258.itch.io/"><img src="./icons/itchio-textless-black.svg"></a>
+            <a href="https://kaguya7258.itch.io/"><img src="/icons/itchio-textless-black.svg"></a>
             </div>
         </div>
     </section>
-
-
-
-    <footer>
-        © 2025 | kabooya
-    </footer>
 
     <!-- Scroll to top -->
     <a href="#" class="scrollToTop" id="scrollToTop">&uarr;</a>
@@ -197,6 +210,8 @@
         });
     </script>
 
+    <footer>
+        © 2025 | kabooya
+    </footer>
 </body>
-
 </html>

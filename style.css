@@ -69,6 +69,7 @@ body {
 
 img {
     max-width: 100%;
+    border-radius: 12px;
 }
 
 
@@ -83,7 +84,7 @@ h2 {
 header {
     
     display: block;
-    padding: 5rem;
+    padding: 3rem;
     color: var(--color-5);
 
 
@@ -105,10 +106,9 @@ header .bg-img {
     height: 100%;
     object-fit: cover;
 
-    filter: blur(2px);
 
     background: linear-gradient(to top, var(--color-1), #ffffff00),
-    url("./Images/Fire and Water/77224E0A-F0FC-4A04-B418-B6AE87F3B7BE.JPG");
+    url("./Images/Fire and Water/ACA0B08D-7180-411C-8931-4260C059E26A.JPG");
       box-sizing: border-box;
     background-position: center;
     background-size: cover;
@@ -117,13 +117,29 @@ header .bg-img {
 }
 
 
+.port-link a {
+    text-align: left;
+    color: var(--color-1);
+    text-decoration: none;
 
+    /* font */
+    font-weight: bold;
+    font-family: BoldFont;
+
+    transition: all 0.3s ease;
+}
+.port-link a:hover {
+    color: var(--color-3);
+}
+
+.port-link {
+    margin-left: 3rem;
+}
 
 
 header .title {
     padding: 5rem;
-    animation: slideIn 1s ease,
-    tracking-in-contract-bck 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: slideIn 1s ease;
 }
 /* Header */
 header .title h1 {
@@ -246,8 +262,12 @@ header a:hover {
 
 /* Link at bottom */
 
+.link-section {
+    margin-bottom: 4rem;
+}
+
 .link-section a {
-    margin-inline: 3rem;
+    margin-inline: 2rem;
     
 }
 .link {
@@ -280,12 +300,11 @@ header a:hover {
     column-count: var(--columns);
     column-gap: 0.5rem;
     row-gap: 0.5rem;
-
     padding-inline: 2rem;
 }
 
-.grid>img,
-.grid>video {
+.grid img,
+.grid video {
     width: 100%;
     display: inline-block;
     border-radius: 0px;
@@ -306,11 +325,15 @@ header a:hover {
 
         /* center button */
         position: fixed;
-        left: 90%;             /* start at the horizontal center */
-        transform: translateX(-50%) translateY(-50%);
-        bottom: 5%;
+        right:0;           /* start at the horizontal center */
+        transform: translateY(-50%);
+        bottom: 0;
         z-index: 9999;
         pointer-events: none;
+
+        /* margins */
+        margin-inline: 1rem;
+        margin-bottom: 1rem;
 
         /* transition */
         transition: all 0.5s ease;
@@ -319,7 +342,7 @@ header a:hover {
 .scrollToTop.visible {
     /* animation */
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
+    transform: translateY(0);
     pointer-events: all;
 }
 
@@ -350,9 +373,8 @@ header a:hover {
     max-width: 60rem;
     margin-inline: auto;
     padding-inline: auto;
+    display: inline-block;
     text-align:center;
-    margin-top:5rem;
-    margin-bottom:5rem;
 }
 
 /* Lightbox overlay */
@@ -530,11 +552,22 @@ footer {
     }
 
     header .title h2 {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        white-space:inherit;
     }
 
     header .navlink {
         font-size: 1.5rem;
+        display:inline-block;
+        margin-inline:.5rem;
+    }
+
+    .link-section img {
+        width: 48px;
+    }
+
+    .scrollToTop {
+        padding: .5rem 3rem;
     }
 }
 
