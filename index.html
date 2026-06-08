@@ -58,69 +58,27 @@
     </section>
 
     <section class="fade-section">
-        <div class="wrapper">
-            <h2>featured.</h2>
+    <div class="wrapper">
+    <div class="gc-wrap">
+        <div class="gc-header">
+            <span class="gc-title">Featured</span>
+            <span class="gc-count" id="gcCount"></span>
         </div>
-        <!-- <div class="grid">
-                <img src="./Images/Onmyoji OC/IMG_2327.JPG" class="zoomable" data-caption="hello???">
-                <img src="./Images/Black Butler/Happy_New_Year~!.png" class="zoomable">
-                <img src="./Images/Fire and Water/77224E0A-F0FC-4A04-B418-B6AE87F3B7BE.JPG" class="zoomable">
-                <img src="./Images/Fire and Water/ACA0B08D-7180-411C-8931-4260C059E26A.JPG" class="zoomable">
-                <img src="./Images/Mysta Rias Graduation Art/IMG_2432.JPG" class="zoomable">
-            </div> -->
 
-        <!-- Slideshow container -->
-        <div class="slideshow-container">
-
-            <!-- Full-width images with number and caption text -->
-            <div class="mySlides fade">
-                <div class="numbertext">1 / 5</div>
-                <img src="/Images/Onmyoji OC/IMG_2327.JPG" style="width:100%; height: 40rem; object-fit: contain;">
-
-            </div>
-
-            <div class="mySlides fade">
-                <div class="numbertext">2 / 5</div>
-                <img src="/Images/Black Butler/Happy_New_Year~!.png"
-                    style="width:100%; height: 40rem; object-fit: contain;">
-
-            </div>
-
-            <div class="mySlides fade">
-                <div class="numbertext">3 / 5</div>
-                <img src="/Images/Fire and Water/77224E0A-F0FC-4A04-B418-B6AE87F3B7BE.JPG"
-                    style="width:100%; height: 40rem; object-fit: contain;">
-
-            </div>
-
-            <div class="mySlides fade">
-                <div class="numbertext">4 / 5</div>
-                <img src="/Images/Fire and Water/ACA0B08D-7180-411C-8931-4260C059E26A.JPG"
-                    style="width:100%; height: 40rem; object-fit: contain;">
-
-            </div>
-
-            <div class="mySlides fade">
-                <div class="numbertext">5 / 5</div>
-                <img src="/Images/Mysta Rias Graduation Art/IMG_2432.JPG"
-                    style="width:100%; height: 40rem; object-fit: contain;">
-
-            </div>
-
-            <!-- Next and previous buttons -->
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="gc-row">
+            <button class="nav-btn" id="gcPrev" aria-label="Previous">
+                <i class="ti ti-arrow-left">←</i>
+            </button>
+            <div class="gc-stage" id="gcStage"></div>
+            <button class="nav-btn" id="gcNext" aria-label="Next">
+                <i class="ti ti-arrow-right">→</i>
+            </button>
         </div>
-        <br>
 
-        <!-- The dots/circles -->
-        <div style="text-align:center">
-            <span class="dot" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
-        </div>
+        <div class="gc-dots" id="gcDots"></div>
+    </div>
+    </div>
+
 
     </section>
 
@@ -147,35 +105,133 @@
     </footer>
 
     <!-- Slideshow script -->
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
+        <script>
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+           ADD YOUR IMAGES HERE
+           Each entry: "path/to/image.jpg"
+           or a full URL. Leave "" for
+           a placeholder.
+        ━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+        const images = [
+            "./Images/Black Butler/Happy_New_Year~!.png",
+            "./Images/Fire and Water/77224E0A-F0FC-4A04-B418-B6AE87F3B7BE.JPG",
+            "./Images/Fire and Water/ACA0B08D-7180-411C-8931-4260C059E26A.JPG",
+            "./Images/Mysta Rias Graduation Art/IMG_2432.JPG",
+            "./Images/Onmyoji OC/IMG_2327.JPG",
+            
+        ];
 
-        // Next/previous controls
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
+        /* tilt per slot — alternates so each card feels unique */
+        const tilts = [-4, 3, -2, 5, -3, 4, -5, 2, -3, 4];
+
+        const total = images.length;
+        let cur = 0;
+        let animating = false;
+
+        const stage = document.getElementById('gcStage');
+        const prevBtn = document.getElementById('gcPrev');
+        const nextBtn = document.getElementById('gcNext');
+        const countEl = document.getElementById('gcCount');
+        const dotsWrap = document.getElementById('gcDots');
+
+        /* build one card per image */
+        const cards = images.map((src, i) => {
+            const card = document.createElement('div');
+            card.className = 'photo-card';
+            card.innerHTML = src
+                ? `<img src="${src}" alt="Gallery image ${i + 1}">`
+                : `<div class="img-placeholder"><i class="ti ti-photo"></i><span>Your image here</span></div>`;
+            card.addEventListener('click', () => { if (i !== cur) goTo(i > cur ? cur + 1 : cur - 1); });
+            stage.appendChild(card);
+            return card;
+        });
+
+        /* dot per image */
+        images.forEach((_, i) => {
+            const d = document.createElement('button');
+            d.className = 'dot';
+            d.setAttribute('aria-label', 'Slide ' + (i + 1));
+            d.addEventListener('click', () => goTo(i));
+            dotsWrap.appendChild(d);
+        });
+
+        /* slot definitions — how many cards visible each side */
+        const SLOTS = [-2, -1, 0, 1, 2];
+        const slotCfg = {
+            '-2': { x: -0.40, s: 0.54, z: 1, o: 0.35 },
+            '-1': { x: -0.21, s: 0.72, z: 3, o: 0.65 },
+            '0': { x: 0, s: 1.00, z: 5, o: 1.00 },
+            '1': { x: 0.21, s: 0.72, z: 3, o: 0.65 },
+            '2': { x: 0.40, s: 0.54, z: 1, o: 0.35 },
+        };
+
+        /* wrap index for infinite loop */
+        function wrap(n) { return ((n % total) + total) % total; }
+
+        function layout() {
+            const w = stage.offsetWidth;
+            cards.forEach((card, i) => {
+                /* find shortest circular distance from cur to i */
+                let offset = i - cur;
+                if (offset > total / 2) offset -= total;
+                if (offset < -total / 2) offset += total;
+
+                const cfg = slotCfg[String(offset)];
+
+                if (!cfg) {
+                    card.style.opacity = '0';
+                    card.style.pointerEvents = 'none';
+                    card.style.zIndex = '0';
+                    return;
+                }
+
+                /* pick tilt: base tilt from tilts array + slot lean */
+                const slotLean = offset * 2.5;
+                const rot = tilts[i % tilts.length] + slotLean;
+
+                card.style.opacity = cfg.o;
+                card.style.zIndex = cfg.z;
+                card.style.pointerEvents = offset === 0 ? 'none' : 'auto';
+                card.style.boxShadow = offset === 0 ? '6px 6px 0 rgba(28,18,8,0.55)' : '3px 3px 0 rgba(28,18,8,0.3)';
+                card.style.transform = `translateX(${cfg.x * w}px) scale(${cfg.s}) rotate(${rot}deg)`;
+            });
         }
 
-        // Thumbnail image controls
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
+        function updateUI() {
+            countEl.textContent = (cur + 1) + ' / ' + total;
+            dotsWrap.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('on', i === cur));
         }
 
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-            slides[slideIndex - 1].style.display = "block";
-            dots[slideIndex - 1].className += " active";
-        } 
+        function goTo(n) {
+            if (animating) return;
+            animating = true;
+            cur = wrap(n);
+            updateUI();
+            layout();
+            setTimeout(() => { animating = false; }, 520);
+        }
+
+        prevBtn.onclick = () => goTo(cur - 1);
+        nextBtn.onclick = () => goTo(cur + 1);
+
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowLeft') goTo(cur - 1);
+            if (e.key === 'ArrowRight') goTo(cur + 1);
+        });
+
+        let dragX = null;
+        stage.addEventListener('pointerdown', e => { dragX = e.clientX; });
+        window.addEventListener('pointerup', e => {
+            if (dragX === null) return;
+            const dx = e.clientX - dragX;
+            dragX = null;
+            if (Math.abs(dx) > 40) goTo(dx < 0 ? cur + 1 : cur - 1);
+        });
+
+        /* init */
+        updateUI();
+        layout();
+        window.addEventListener('resize', layout);
     </script>
 
 
